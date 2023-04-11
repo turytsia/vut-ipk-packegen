@@ -1,5 +1,10 @@
 # @author (xturyt00)
 
+from scapy.layers.inet import TCP, UDP, ICMP
+from scapy.layers.inet6 import IPv6
+from scapy.layers.l2 import ARP
+from scapy.contrib.igmp import IGMP
+from scapy.layers.inet6 import ICMPv6MLReport, ICMPv6ND_NA, ICMPv6EchoRequest
 from scapy.all import *
 import time
 import getopt
@@ -106,7 +111,7 @@ def main():
             else:
                 error(f"unknown mode {mode}")
 
-            time.timeout(timeout)
+            time.sleep(timeout)
 
         except Exception as e:
             error(f'Error: {e}')
